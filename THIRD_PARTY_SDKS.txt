@@ -1,0 +1,20 @@
+Third-party SDKs used by this build
+
+Firebase Android BoM 34.19.0
+- Firebase Authentication
+- Firebase Cloud Functions
+- Firebase Firestore
+
+Vuzix M400 SDKs
+- Vuzix Barcode SDK 2.0.0
+- Vuzix Speech Recognition Service 1.98.0
+
+Firebase project
+- Project ID: anpr-eef87
+- Android package/applicationId: com.example.saudi_anpr
+- Functions region: asia-south1
+
+The Firebase Android libraries are declared directly in app/build.gradle using the Firebase Android BoM.
+The Google Services Gradle plugin is declared at project level and google-services.json is included under app/.
+
+The Vuzix SDKs are intentionally resolved through the official Vuzix/JitPack Maven artifacts rather than copied into this ZIP. Vuzix states that the M400 barcode Intent interface is the supported low-code scanner mechanism for current hardware and that its SDK is subject to the Vuzix SDK license.

@@ -1,0 +1,11 @@
+FINAL SPARK RULES
+
+This build no longer performs activation writes from the APK. Publish firestore.rules exactly.
+The license document must contain a future Timestamp field named expiresAt.
+
+Test document:
+licenses/SAUDI-TEST-001
+status = active
+packageName = com.example.saudi_anpr
+loginEmail = saudi.anpr.test@purview.com
+expiresAt = future Timestamp

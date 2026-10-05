@@ -1,0 +1,19 @@
+FIXES APPLIED
+
+1. Corrected Spark-plan license activation.
+   Previous bug: activatedAt and expiresAt were both written with serverTimestamp(),
+   so they became the same time and Firestore Rules rejected the update.
+
+2. Activation is now two-step:
+   - server timestamps activatedAt + records deviceId
+   - reads activatedAt
+   - writes expiresAt = activatedAt + 30 days
+   - Rules enforce the exact relationship
+
+3. Recovery added if the app is interrupted after the first activation write.
+
+4. google-services.json in this project points to Firebase project anpr-eef87
+   with Android package com.example.saudi_anpr.
+
+5. Phone QR uses CameraX + bundled ML Kit.
+6. M400 uses Vuzix native QR scanner and Vuzix voice commands.

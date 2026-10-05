@@ -1,0 +1,13 @@
+NAVIGATION POPUP FIX - 2026-10-05
+
+This patch leaves the security/QR one-scan flow and ANPR detection code unchanged.
+
+Fixes:
+1. Schedule polling now runs while MainActivity (License Plate Recognition) is in the foreground.
+2. HomeActivity stops its polling when it is not foreground, preventing duplicate schedule requests.
+3. Foreground schedule refresh is 10 seconds instead of 60 seconds for responsive schedule changes.
+4. Trigger timing uses the backend current_time when available, with local time fallback.
+5. Active navigation popup triggers once anywhere inside the active start/end window, so a small polling/network delay cannot make the alert disappear.
+6. The existing ReminderActivity is still the navigation screen opened by the popup.
+
+No Firebase, QR, PIN, scanner, LicenseValidator, SecuritySession, or ANPR capture code was changed by this navigation patch.

@@ -1,0 +1,58 @@
+*.iml
+.gradle
+/local.properties
+
+# Android Studio
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# Build / generated files
+/build
+**/build/
+.captures
+/captures
+.externalNativeBuild
+.cxx
+
+# OS files
+.DS_Store
+
+# Signing / private keys
+*.jks
+*.keystore
+
+# Local/admin license material
+PRIVATE_LICENSE_SETUP.txt
+service-account*.json
+functions/.env*
+admin/RESELLER_CREDENTIALS_DO_NOT_SEND.txt
+output
+
+# IDE
+/.idea/
+
+# Private/admin files
+/admin/
+
+# Delivery files such as APKs/QR credentials
+/delivery/
+
+# Archives / built packages
+*.apk
+*.aab
+*.zip
+
+# Internal test credentials / QR data
+BUILD_SPARK.md
+DEBUG_NOW.txt
+ONE_SCAN_LOGIN.md
+PHONE_TEST_SETUP.md
+SPARK_PLAN_SETUP.md
+
+# Private project material
+/admin/
+/delivery/

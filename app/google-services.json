@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984575275084",
+    "project_id": "anpr-eef87",
+    "storage_bucket": "anpr-eef87.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984575275084:android:deb96e7f0a0b363e36c4e9",
+        "android_client_info": {
+          "package_name": "com.example.saudi_anpr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRreS0Qd3tmzf5FU_5yyDWL1dTZJDwmhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

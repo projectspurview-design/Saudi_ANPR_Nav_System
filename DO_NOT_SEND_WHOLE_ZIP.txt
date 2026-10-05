@@ -1,0 +1,12 @@
+IMPORTANT
+
+This ZIP is the developer build package, not the reseller delivery package.
+
+It contains the Android Studio source and a developer-only license credential file under admin/.
+
+For the reseller, build a SIGNED release APK and send only:
+- the APK
+- delivery/SAUDI_RESELLER_QR.png
+- the one-scan QR credential
+
+Never send admin/RESELLER_CREDENTIALS_DO_NOT_SEND.txt or Firebase service-account credentials.

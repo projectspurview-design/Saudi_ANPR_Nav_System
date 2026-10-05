@@ -1,0 +1,94 @@
+SAUDI ANPR - VUZIX M400 IN-APP GPS NAVIGATION
+================================================
+
+WHAT CHANGED
+------------
+The existing schedule flow is unchanged.
+HomeActivity still opens ReminderActivity at the scheduled warning/start time.
+ReminderActivity is now a full-screen map/navigation view instead of a text-only popup.
+
+New behavior:
+- Destination comes from the same schedule latitude/longitude.
+- Current position comes from the Vuzix M400 live Android location providers.
+- Destination is shown as a red marker.
+- Current position is shown as a blue marker.
+- Google Routes API provides a driving route, distance and ETA.
+- START enables follow-my-location navigation view.
+- STOP pauses follow mode and shows the whole route.
+- CLOSE/BACK returns to the exact ANPR screen that was underneath the reminder.
+
+FILES CHANGED / ADDED
+---------------------
+1. app/src/main/java/com/example/saudi_anpr/ReminderActivity.java   (replaced)
+2. app/src/main/res/layout/activity_reminder_navigation.xml        (new)
+3. app/src/main/res/values/strings.xml                              (modified)
+4. app/src/main/AndroidManifest.xml                                 (modified)
+5. app/build.gradle                                                 (modified)
+6. gradle.properties                                                (modified)
+
+GOOGLE CLOUD SETUP
+------------------
+You need a Google Cloud project with billing enabled.
+Enable:
+- Maps SDK for Android
+- Routes API
+
+Then edit:
+app/src/main/res/values/strings.xml
+
+Replace:
+YOUR_GOOGLE_MAPS_ANDROID_API_KEY
+YOUR_GOOGLE_ROUTES_API_KEY
+
+Recommended key setup:
+A) Maps key
+   - Application restriction: Android apps
+   - Package: com.example.saudi_anpr
+   - Add your debug/release SHA-1 certificate
+   - API restriction: Maps SDK for Android
+
+B) Routes key
+   - Use a separate key
+   - API restriction: Routes API
+   - For the prototype, the app sends X-Android-Package and X-Android-Cert headers
+     so you can test Android application restrictions with the endpoint.
+   - For production, the safer architecture is to proxy Routes API through your backend
+     rather than storing a Routes web-service key in the APK.
+
+VUZIX M400 COMPATIBILITY
+------------------------
+Vuzix documentation specifies Google Play Services Client Library 9.8.0 or earlier
+for Maps on M400/M4000. Therefore this project intentionally uses:
+com.google.android.gms:play-services-maps:9.8.0
+
+The project uses Android LocationManager instead of the modern Fused Location Provider,
+which avoids requiring a newer Google Play Services location library on the glasses.
+
+TEST FLOW
+---------
+1. Add both API keys.
+2. Sync Gradle in Android Studio.
+3. Install on the M400.
+4. Grant Location permission when first requested.
+5. Ensure Wi-Fi/Internet and Location/GPS are enabled.
+6. From the web app, create a schedule with destination latitude/longitude and time.
+7. At the reminder time, ReminderActivity opens as a full map.
+8. Wait for LIVE GPS.
+9. Route line, distance and ETA should appear.
+10. Select START using the glasses controls/touchpad.
+11. The map follows current position while moving.
+12. Select CLOSE/BACK to return to the previous ANPR screen.
+
+IMPORTANT: CURRENT SCOPE
+------------------------
+This first prototype provides an IN-APP live map, driving route, distance/ETA and
+follow-my-location navigation. It does not yet provide production-grade spoken
+turn-by-turn maneuver instructions. That can be added as the next layer after the
+map/GPS behavior is verified on the physical M400.
+
+BUILD NOTE
+----------
+The modified source was structurally checked, but the provided execution environment
+could not download Gradle 9.1.0 from services.gradle.org, so an APK could not be built
+inside that environment. Android Studio with internet access should perform the real
+Gradle dependency resolution/build.

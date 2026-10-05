@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Saudi ANPR</string>
+
+    <!--
+      PROTOTYPE SETUP:
+      1. Enable Maps SDK for Android in Google Cloud.
+      2. Create an Android-restricted key for package com.example.saudi_anpr and paste it below.
+      3. Enable Routes API and paste a Routes API key below.
+
+      For production, do not ship the Routes web-service key inside the APK.
+      Proxy route requests through your backend instead.
+    -->
+    <string name="google_maps_key" translatable="false">YOUR_GOOGLE_MAPS_ANDROID_API_KEY</string>
+    <string name="google_routes_key" translatable="false">YOUR_GOOGLE_ROUTES_API_KEY</string>
+</resources>
