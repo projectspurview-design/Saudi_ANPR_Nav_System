@@ -1,1 +1,0 @@
-# Saudi_ANPR_Nav_System
